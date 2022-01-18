@@ -1,11 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import Login from './components/Login';
 import reportWebVitals from './reportWebVitals';
+import Signup from './components/Signup';
+import App from './components/App';
 
 ReactDOM.render(
   <React.StrictMode>
+    {/* <Boilerplate /> */}
     <App />
   </React.StrictMode>,
   document.getElementById('root')
