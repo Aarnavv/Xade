@@ -1,0 +1,196 @@
+@keyframes shrink {
+  0% {
+    font-size: 18px;
+  }
+
+  100% {
+    font-size: 16px;
+  }
+}
+
+@keyframes grow {
+  0% {
+    font-size: 16px;
+  }
+
+  100% {
+    font-size: 18px;
+  }
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body {
+  background: #191919;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+}
+
+#right {
+  padding: 0;
+  margin-top: 0;
+  min-width: 50vw;
+  height: 100vh;
+}
+
+#small-shortLogo {
+  height: 100%;
+}
+
+.adjust-login {
+  display: flex;
+  height: 70vh;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-component {
+  width: 100%;
+}
+
+.login-info {
+  font-size: 2rem;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  margin: 0 0 0 4rem;
+}
+
+.login-username-entry,
+.login-password-entry {
+  font-size: 1.4rem;
+  border: 1px solid rgba(128, 128, 128, 0.5);
+  width: 69%;
+  margin-top: 1rem;
+  height: 3.2rem;
+  border-radius: 3px;
+}
+
+.login-form {
+  margin: 1rem 0 0 4rem;
+}
+
+.short-logo-center {
+  display: flex;
+  justify-content: center;
+  height: 7rem;
+  margin-bottom: 0;
+}
+
+.center-flex-logo {
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#shortLogo {
+  width: 20rem;
+  transition: all 1s ease-in-out;
+}
+
+#shortLogo:hover {
+  transform: scale(1.1);
+}
+
+text {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+#xade {
+  margin-top: 3rem;
+  font-size: 3rem;
+}
+#tagline {
+  margin-top: 2rem;
+  opacity: 80%;
+}
+
+#joinNow {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  opacity: 80%;
+}
+
+#left {
+  min-width: 35vw;
+  margin-left: 8rem;
+}
+
+.show {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0;
+  text-align: center;
+  margin-left: 2.15rem;
+  width: 15rem;
+  height: 2.2rem;
+  margin-top: 1rem;
+  border-radius: 1rem;
+  border: 0px;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+#login-button {
+  margin-top: 8rem;
+  background-color: #4fbdba;
+}
+
+#register-button {
+  position: relative;
+  bottom: 5px;
+  background-color: #d77fa1;
+}
+
+hr {
+  position: relative;
+  top: 6px;
+  width: 7rem;
+  display: inline-block;
+  height: 0px;
+  border: 0.01rem ridge #696969;
+}
+#left-hr {
+  margin-left: 1.5rem;
+}
+
+#right-hr {
+}
+
+sec {
+  position: relative;
+  color: #fff;
+  padding: 10px 3px 0px 3px;
+  top: 3px;
+}
+
+@media (max-width: 1000px) {
+  #right,
+  #left {
+    flex: 100%;
+  }
+
+  #left {
+    margin: 1rem;
+  }
+}
