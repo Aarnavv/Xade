@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css'
 import Login from './Login'
 import Signup from './Signup'
+import 'popper.js/dist/umd/popper'
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
 
 const Logo = (props) => {
     return (

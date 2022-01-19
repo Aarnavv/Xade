@@ -28,8 +28,31 @@ class Login extends Component {
         })
     }
 
-    handleSubmit(e) {
+    createUser = async () => {
+    const response = await fetch('/users_create', {
+        method: 'POST',
+        body: JSON.stringify({
+            username: this.state.username,
+            password: this.state.password,
+            email: this.state.email,
+            confirm: this.state.confirm
+        })
+    });
+    const body = await response.json();
 
+    if (response.status !== 200) {
+      throw Error(body.message) 
+    }
+    return body;
+  };
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.createUser()
+        .then(response => {
+            console.log(response)
+        })
+        .catch(err => console.log(err));
     }
 
     
@@ -43,7 +66,7 @@ class Login extends Component {
             <div className="short-logo-center"><img id = "small-shortLogo" src="logo.svg"/></div>
             <h1 className = 'login-info'>Register</h1>      
             <section>
-                <form className = "login-form" onsubmit={this.handleSubmit}>
+                <form className = "login-form" onSubmit={this.handleSubmit}>
                     <div className = "login-entries">
                         <div className = 'login-label'>
                             Username            
@@ -62,7 +85,7 @@ class Login extends Component {
                         <div className = 'login-label'>
                             Password          
                         </div>
-                        <input name="email" autoComplete = "off" className = "login-fields" type="email" value={this.state.password} onChange={this.handleInput} />
+                        <input name="password" autoComplete = "off" className = "login-fields" type="password" value={this.state.password} onChange={this.handleInput} />
                     </div>
 
                 
@@ -70,7 +93,7 @@ class Login extends Component {
                         <div className = 'login-label'>
                             Confirm          
                         </div>
-                        <input name="email" autoComplete = "off" className = "login-fields" type="email" value={this.state.confirm} onChange={this.handleInput} />
+                        <input name="confirm" autoComplete = "off" className = "login-fields" type="password" value={this.state.confirm} onChange={this.handleInput} />
                     </div>
                 <input class = "form-submit" type="submit" value="Submit" />
                 </form>
