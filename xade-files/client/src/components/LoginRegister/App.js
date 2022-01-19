@@ -3,6 +3,11 @@ import './App.css'
 import Login from './Login'
 import Signup from './Signup'
 
+import 'popper.js/dist/umd/popper'
+import 'bootstrap/dist/js/bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+
+
 const Logo = (props) => {
     return (
         <div class = "center-flex-logo"><img alt = 'logo' id = "shortLogo" src = {process.env.PUBLIC_URL + "/logo.svg"}/>  </div>

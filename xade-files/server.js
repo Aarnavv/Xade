@@ -5,7 +5,10 @@ const port = process.env.PORT || 5000;
 // This displays message that the server running and listening to specified port
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-// create a GET route
-app.get('/express_backend', (req, res) => { 
-  res.send({ express: 'YOUR EXPRESS BACKEND IS (not) CONNECTED TO REACT' });
-});
+// create a POST route
+
+app.post('/users_create', (req, res, next) => {
+  console.log(req.body);
+  //GUN stuff
+  res.send({message: 'User created successfuly'})
+})
