@@ -15,36 +15,59 @@ class App extends Component {
     this.handleRegisterClick = this.handleRegisterClick.bind(this);
     this.handleLoginClick = this.handleLoginClick.bind(this);
     this.handleLogoClick = this.handleLoginClick.bind(this);
+    //specifies what to render on the right side of the screen
     this.state = {whatShow: 0};
   }
 
+  //alters state for render() - login
   handleLoginClick() {
     this.setState({whatShow: 1});
 
   }
 
+  //alters state for render() - login
   handleRegisterClick() {
     this.setState({whatShow: 2});
   }
     render() {
+        //value is 1 or 2 when the button is clicked. default is 0 (to render logo)
         const whatShow = this.state.whatShow;
         console.log(whatShow);
         let rightElement;
         switch(whatShow)
         {
             case 0:
+                //renders logo
                 document.querySelector('html').style.animation = "grow 1s forwards";
                 rightElement = <Logo />;
                 break;
             case 1: case 2: 
+
+                //makes necessary changes for rendering the login / signup
+                var x = window.matchMedia("(max-width: 600px)")
+                
                 document.querySelector('html').style.animation = "shrink 1s forwards";
                 document.querySelector('#right').style.backgroundColor = '#0f0f0f';
-                break;
+                break;  
+
+                //ignore
+                function myFunction(x) {
+                if (x.matches) { // If media query matches
+                    document.querySelector('.flex').style.flexDirection = 'row-reverse';
+                } else {
+                    document.querySelector('.flex').style.flexDirection = 'row';
+                }
+
+                x.addListener(myFunction)
+            }
+
+            //exceptional case
             default: 
                 rightElement = function() {return <div></div>}
         }
 
         switch(whatShow) {
+            //sets the rightElement to login / signup when button is clicked.
             case 1: 
                 rightElement = <Login />;
                 break;
@@ -64,7 +87,7 @@ class App extends Component {
                         <button onClick = {this.handleLoginClick} id = 'login-button' className = "show">Login</button>
                     </div>
 
-                    <div>
+                    <div >
                         <hr id = 'left-hr'/> <sec>or</sec> <hr id = 'right-hr'/>
                     </div>
 
