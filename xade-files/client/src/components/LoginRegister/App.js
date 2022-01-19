@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css'
 import Login from './Login'
 import Signup from './Signup'
-
 import 'popper.js/dist/umd/popper'
 import 'bootstrap/dist/js/bootstrap';
 import 'bootstrap/dist/css/bootstrap.css';
@@ -10,105 +9,103 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Logo = (props) => {
     return (
-        <div class = "center-flex-logo"><img alt = 'logo' id = "shortLogo" src = {process.env.PUBLIC_URL + "/logo.svg"}/>  </div>
+        <div className="center-flex-logo"><img alt='logo' id="shortLogo" src={process.env.PUBLIC_URL + "/logo.svg"} />  </div>
     )
 }
 
 class App extends Component {
     constructor(props) {
-    super(props);
-    this.handleRegisterClick = this.handleRegisterClick.bind(this);
-    this.handleLoginClick = this.handleLoginClick.bind(this);
-    this.handleLogoClick = this.handleLoginClick.bind(this);
-    //specifies what to render on the right side of the screen
-    this.state = {whatShow: 0};
-  }
+        super(props);
+        this.handleRegisterClick = this.handleRegisterClick.bind(this);
+        this.handleLoginClick = this.handleLoginClick.bind(this);
+        this.handleLogoClick = this.handleLoginClick.bind(this);
+        //specifies what to render on the right side of the screen
+        this.state = { whatShow: 0 };
+    }
 
-  //alters state for render() - login
-  handleLoginClick() {
-    this.setState({whatShow: 1});
+    //alters state for render() - login
+    handleLoginClick() {
+        this.setState({ whatShow: 1 });
 
-  }
+    }
 
-  //alters state for render() - login
-  handleRegisterClick() {
-    this.setState({whatShow: 2});
-  }
+    //alters state for render() - login
+    handleRegisterClick() {
+        this.setState({ whatShow: 2 });
+    }
     render() {
         //value is 1 or 2 when the button is clicked. default is 0 (to render logo)
         const whatShow = this.state.whatShow;
         console.log(whatShow);
         let rightElement;
-        switch(whatShow)
-        {
+        switch (whatShow) {
             case 0:
                 //renders logo
                 document.querySelector('html').style.animation = "grow 1s forwards";
                 rightElement = <Logo />;
                 break;
-            case 1: case 2: 
+            case 1: case 2:
 
                 //makes necessary changes for rendering the login / signup
                 var x = window.matchMedia("(max-width: 600px)")
-                
+
                 document.querySelector('html').style.animation = "shrink 1s forwards";
-                document.querySelector('#right').style.backgroundColor = '#0f0f0f';
-                break;  
+                document.querySelector('#right-section').style.backgroundColor = '#0f0f0f';
+                break;
 
                 //ignore
                 function myFunction(x) {
-                if (x.matches) { // If media query matches
-                    document.querySelector('.flex').style.flexDirection = 'row-reverse';
-                } else {
-                    document.querySelector('.flex').style.flexDirection = 'row';
+                    if (x.matches) { // If media query matches
+                        document.querySelector('.flex-section').style.flexDirection = 'row-reverse';
+                    } else {
+                        document.querySelector('.flex-section').style.flexDirection = 'row';
+                    }
+
+                    x.addListener(myFunction)
                 }
 
-                x.addListener(myFunction)
-            }
-
             //exceptional case
-            default: 
-                rightElement = function() {return <div></div>}
+            default:
+                rightElement = function () { return <div></div> }
         }
 
-        switch(whatShow) {
+        switch (whatShow) {
             //sets the rightElement to login / signup when button is clicked.
-            case 1: 
+            case 1:
                 rightElement = <Login />;
                 break;
             case 2:
-                rightElement = <Signup />;  
+                rightElement = <Signup />;
                 break;
         }
         return (
-        <React.Fragment>
-            <section className = "flex">
-                
-                <div id = "left">
-                    <text id = "xade">Xade</text> 
-                    <text id = "tagline">Reimagining social network </text>
-                    <text id = "joinNow">And the stars look very different today</text>
-                    <div>   
-                        <button onClick = {this.handleLoginClick} id = 'login-button' className = "show">Login</button>
+            <React.Fragment>
+                <section className="flex-section">
+                    <div id="left-section">
+                        <p className="special-text" id="xade-header">Xade</p>
+                        <p className="special-text" id="tagline">Re-imagining social network</p>
+                        <p className="special-text" id="join-now">And the stars look very different today</p>
+                        <div>
+                            <button onClick={this.handleLoginClick} id='login-button' className="show">Login</button>
+                        </div>
+
+                        <div className="login-signup-div text-left">
+                            <hr className="align-middle" id='left-hr' /> or <hr className="align-middle" id='right-hr' />
+                        </div>
+
+                        <div>
+                            <button onClick={this.handleRegisterClick} id="register-button" className="show">Register</button>
+                        </div>
                     </div>
 
-                    <div >
-                        <hr id = 'left-hr'/> <sec>or</sec> <hr id = 'right-hr'/>
+                    <div id="right-section">
+                        {rightElement}
                     </div>
 
-                    <div>
-                        <button onClick = {this.handleRegisterClick} id = "register-button" className = "show">Register</button>
-                    </div>    
-                </div>
-
-                <div id = "right">
-                    {rightElement}
-                </div>
-
-            </section>
-        </React.Fragment>
+                </section>
+            </React.Fragment>
         )
-        }
-}   
+    }
+}
 
 export default App;
