@@ -28,6 +28,7 @@ class Login extends Component {
         })
     }
 
+
     createUser = async () => {
     const response = await fetch('/users_create', {
         method: 'POST',
@@ -45,6 +46,7 @@ class Login extends Component {
     }
     return body;
   };
+
 
     handleSubmit(e) {
         e.preventDefault();
@@ -66,7 +68,9 @@ class Login extends Component {
             <div className="short-logo-center"><img id = "small-shortLogo" src="logo.svg"/></div>
             <h1 className = 'login-info'>Register</h1>      
             <section>
+
                 <form className = "login-form" onSubmit={this.handleSubmit}>
+
                     <div className = "login-entries">
                         <div className = 'login-label'>
                             Username            
@@ -85,7 +89,9 @@ class Login extends Component {
                         <div className = 'login-label'>
                             Password          
                         </div>
+
                         <input name="password" autoComplete = "off" className = "login-fields" type="password" value={this.state.password} onChange={this.handleInput} />
+
                     </div>
 
                 
@@ -93,7 +99,9 @@ class Login extends Component {
                         <div className = 'login-label'>
                             Confirm          
                         </div>
+
                         <input name="confirm" autoComplete = "off" className = "login-fields" type="password" value={this.state.confirm} onChange={this.handleInput} />
+
                     </div>
                 <input class = "form-submit" type="submit" value="Submit" />
                 </form>
