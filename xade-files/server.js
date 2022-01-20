@@ -10,5 +10,5 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 app.post('/users_create', (req, res, next) => {
   console.log(req.body);
   //GUN stuff
-  res.send({message: 'User created successfuly'})
+  res.send({ message: 'User created successfuly' })
 })
