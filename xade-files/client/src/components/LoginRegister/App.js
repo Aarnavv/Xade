@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Logo = (props) => {
     return (
-        <div className="center-flex-logo"><img alt='logo' id="shortLogo" src={process.env.PUBLIC_URL + "/logo.svg"} />  </div>
+        <div className="center-logo align-middle"><img alt='logo' className="mx-auto aling-middle text-center" id="shortLogo" src={process.env.PUBLIC_URL + "/logo.svg"} />  </div>
     )
 }
 
@@ -36,7 +36,7 @@ class App extends Component {
     render() {
         //value is 1 or 2 when the button is clicked. default is 0 (to render logo)
         const whatShow = this.state.whatShow;
-        console.log(whatShow);
+        // console.log(whatShow);
         let rightElement;
         switch (whatShow) {
             case 0:
@@ -47,22 +47,11 @@ class App extends Component {
             case 1: case 2:
 
                 //makes necessary changes for rendering the login / signup
-                var x = window.matchMedia("(max-width: 600px)")
+                // var x = window.matchMedia("(max-width: 600px)")
 
                 document.querySelector('html').style.animation = "shrink 1s forwards";
                 document.querySelector('#right-section').style.backgroundColor = '#0f0f0f';
                 break;
-
-                //ignore
-                function myFunction(x) {
-                    if (x.matches) { // If media query matches
-                        document.querySelector('.flex-section').style.flexDirection = 'row-reverse';
-                    } else {
-                        document.querySelector('.flex-section').style.flexDirection = 'row';
-                    }
-
-                    x.addListener(myFunction)
-                }
 
             //exceptional case
             default:
@@ -89,7 +78,7 @@ class App extends Component {
                             <button onClick={this.handleLoginClick} id='login-button' className="show">Login</button>
                         </div>
 
-                        <div className="login-signup-div text-left">
+                        <div className="login-signup-div text-center">
                             <hr className="align-middle" id='left-hr' /> or <hr className="align-middle" id='right-hr' />
                         </div>
 
