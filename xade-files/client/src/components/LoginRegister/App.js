@@ -67,6 +67,7 @@ class App extends Component {
                 rightElement = <Signup />;
                 break;
         }
+        
         return (
             <React.Fragment>
                 <section className="flex-section">
