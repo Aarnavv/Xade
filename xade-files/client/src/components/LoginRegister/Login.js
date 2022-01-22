@@ -29,7 +29,17 @@ class Login extends Component {
 
     //sends api request for GUNing
     handleSubmit(e) {
-
+        // createUser = async () => {
+        // const response = await fetch('/users_create', {
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         username: this.state.username,
+        //         password: this.state.password,
+        //         email: this.state.email,
+        //         confirm: this.state.confirm
+        //     })
+        // });
+    // };
     }
 
     render() {

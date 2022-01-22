@@ -1,13 +1,3 @@
-@keyframes grow {
-  0% {
-    font-size: 16px;
-  }
-
-  100% {
-    font-size: 18px;
-  }
-}
-
 @keyframes shrink {
   0% {
     font-size: 18px;

@@ -39,11 +39,7 @@ class App extends Component {
         // console.log(whatShow);
         let rightElement;
         switch (whatShow) {
-            case 0:
-                //renders logo
-                document.querySelector('html').style.animation = "grow 1s forwards";
-                rightElement = <Logo />;
-                break;
+
             case 1: case 2:
 
                 //makes necessary changes for rendering the login / signup
@@ -59,6 +55,10 @@ class App extends Component {
         }
 
         switch (whatShow) {
+            case 0:
+                //renders logo
+                rightElement = <Logo />;
+                break;
             //sets the rightElement to login / signup when button is clicked.
             case 1:
                 rightElement = <Login />;
@@ -73,7 +73,7 @@ class App extends Component {
                     <div id="left-section">
                         <p className="special-text" id="xade-header">Xade</p>
                         <p className="special-text" id="tagline">Re-imagining social network</p>
-                        <p className="special-text" id="join-now">And the stars look very different today</p>
+                        <p className="special-text" id="join-now">We'll let you be in our dreams<br/>if we can be in yours.     </p>
                         <div>
                             <button onClick={this.handleLoginClick} id='login-button' className="show">Login</button>
                         </div>

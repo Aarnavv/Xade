@@ -27,33 +27,25 @@ class Login extends Component {
         })
     }
 
-
-    createUser = async () => {
-        const response = await fetch('/users_create', {
-            method: 'POST',
-            body: JSON.stringify({
-                username: this.state.username,
-                password: this.state.password,
-                email: this.state.email,
-                confirm: this.state.confirm
-            })
-        });
-        const body = await response.json();
-
-        if (response.status !== 200) {
-            throw Error(body.message)
-        }
-        return body;
-    };
-
-
     handleSubmit(e) {
         e.preventDefault();
-        this.createUser()
-            .then(response => {
-                console.log(response)
-            })
-            .catch(err => console.log(err));
+        fetch('/users_create', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username: 'fff',
+                email: this.state.email,
+                password: this.state.password,
+                confirm: this.state.confirm
+            })  
+        })
+        .then(response => response.json())
+        .then(data => console.log(data))
+
+        // if (response.status !== 200) {
+        //     throw Error(body.message)
+        // }
+        // return body;
     }
 
 
