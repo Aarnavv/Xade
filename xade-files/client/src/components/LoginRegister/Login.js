@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import './App.css'
+
 //component for LoginForm. used in App.js
 class Login extends Component {
     // Logic for the form
@@ -39,7 +41,7 @@ class Login extends Component {
         //         confirm: this.state.confirm
         //     })
         // });
-    // };
+        // };
     }
 
     render() {

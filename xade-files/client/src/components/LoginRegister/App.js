@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 const Logo = (props) => {
     return (
-        <div className="center-logo align-middle"><img alt='logo' className="mx-auto aling-middle text-center" id="shortLogo" src={process.env.PUBLIC_URL + "/logo.svg"} />  </div>
+        <div className="center-logo"><img alt='logo' className="short-logo" id="" src={process.env.PUBLIC_URL + "/logo.svg"} />  </div>
     )
 }
 
@@ -67,24 +67,27 @@ class App extends Component {
                 rightElement = <Signup />;
                 break;
         }
-        
+
         return (
             <React.Fragment>
                 <section className="flex-section">
                     <div id="left-section">
-                        <p className="special-text" id="xade-header">Xade</p>
-                        <p className="special-text" id="tagline">Re-imagining social network</p>
-                        <p className="special-text" id="join-now">We'll let you be in our dreams<br/>if we can be in yours.     </p>
-                        <div>
-                            <button onClick={this.handleLoginClick} id='login-button' className="show">Login</button>
-                        </div>
+                        <div className="left-section-container">
+                            <p className="special-text" id="xade-header">Xade</p>
+                            <p className="special-text" id="tagline">Re-imagining social network</p>
+                            <p className="special-text" id="join-now">We'll let you be in our dreams<br />if we can be in yours.     </p>
+                            <div className="show-items">
+                                <div>
+                                    <button onClick={this.handleLoginClick} id='login-button' className="show">Login</button>
+                                </div>
 
-                        <div className="login-signup-div text-center">
-                            <hr className="align-middle" id='left-hr' /> or <hr className="align-middle" id='right-hr' />
-                        </div>
-
-                        <div>
-                            <button onClick={this.handleRegisterClick} id="register-button" className="show">Register</button>
+                                <div className="login-signup-div text-center">
+                                    <hr className="align-middle" id='left-hr' /> or <hr className="align-middle" id='right-hr' />
+                                </div>
+                                <div>
+                                    <button onClick={this.handleRegisterClick} id="register-button" className="show">Register</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -93,7 +96,7 @@ class App extends Component {
                     </div>
 
                 </section>
-            </React.Fragment>
+            </React.Fragment >
         )
     }
 }
