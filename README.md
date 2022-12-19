@@ -5,3 +5,6 @@
 - If it does not work for you, just run 'npm install' in your terminal and try again.
 
 - To run the express ONLY, 'cd xade-files' and then run 'node server.js' in your terminal.
+ 
+@Arnav-Jhajharia ( Login / Register Page )
+@Aarnavv 
